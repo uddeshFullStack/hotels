@@ -4,7 +4,11 @@ const app=express();
 
 const db=require('./db')
 
+
+require('dotenv').config();
+
 const bodyParser=require('body-parser')
+
 
 
 const personRoutes=require('./routes/personRoutes')
@@ -26,8 +30,8 @@ app.use('/person',personRoutes)
 
 app.use('/menu',menuRoutes)
 
-
-app.listen(3000,()=>{
+const POST=process.env.POST
+app.listen(POST,()=>{
     console.log("listening on port 3000");
 })
 
